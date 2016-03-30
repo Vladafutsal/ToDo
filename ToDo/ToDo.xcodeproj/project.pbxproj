@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		558717361CAC061700ABAC94 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 558717351CAC061700ABAC94 /* LoginViewController.m */; };
 		55A4F03B1CA966DB001A5B51 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 55A4F03A1CA966DB001A5B51 /* main.m */; };
 		55A4F03E1CA966DB001A5B51 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 55A4F03D1CA966DB001A5B51 /* AppDelegate.m */; };
 		55A4F0441CA966DC001A5B51 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55A4F0421CA966DC001A5B51 /* Main.storyboard */; };
@@ -18,6 +19,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		558717341CAC061700ABAC94 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		558717351CAC061700ABAC94 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		55A4F0361CA966DB001A5B51 /* ToDo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ToDo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		55A4F03A1CA966DB001A5B51 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		55A4F03C1CA966DB001A5B51 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -105,6 +108,8 @@
 			children = (
 				55A4F03F1CA966DB001A5B51 /* ViewController.h */,
 				55A4F0401CA966DC001A5B51 /* ViewController.m */,
+				558717341CAC061700ABAC94 /* LoginViewController.h */,
+				558717351CAC061700ABAC94 /* LoginViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -200,6 +205,7 @@
 				55A4F03B1CA966DB001A5B51 /* main.m in Sources */,
 				55A4F0541CA96705001A5B51 /* ViewController.m in Sources */,
 				55A4F0471CA966DC001A5B51 /* ToDo.xcdatamodeld in Sources */,
+				558717361CAC061700ABAC94 /* LoginViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -348,6 +354,7 @@
 				55A4F0521CA966DC001A5B51 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
