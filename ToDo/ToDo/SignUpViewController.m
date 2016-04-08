@@ -19,6 +19,8 @@
 @property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
 @property (weak, nonatomic) IBOutlet UITextField *birthdayTextField;
 @property (weak, nonatomic) IBOutlet UIButton *joinButton;
+
+
 @end
 
 @implementation SignUpViewController
@@ -26,7 +28,13 @@
 #pragma mark - Actions
 
 - (IBAction)backButtonTapped:(UIButton *)sender {
-    [self dismissViewControllerAnimated:YES completion:nil];
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+-(void)viewDidLoad {
+    [super viewDidLoad];
+
+
 }
 
 
