@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		555AC7101CBE7244003DF023 /* iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 555AC70F1CBE7244003DF023 /* iPad.storyboard */; };
 		558717361CAC061700ABAC94 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 558717351CAC061700ABAC94 /* LoginViewController.m */; };
 		558717391CAC08E900ABAC94 /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 558717381CAC08E900ABAC94 /* SignUpViewController.m */; };
 		559227AE1CB7ED2400B855A2 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 559227AD1CB7ED2400B855A2 /* HomeViewController.m */; };
@@ -21,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		555AC70F1CBE7244003DF023 /* iPad.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = iPad.storyboard; sourceTree = "<group>"; };
 		558717341CAC061700ABAC94 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		558717351CAC061700ABAC94 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		558717371CAC08E900ABAC94 /* SignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignUpViewController.h; sourceTree = "<group>"; };
@@ -128,6 +130,7 @@
 			isa = PBXGroup;
 			children = (
 				55A4F0421CA966DC001A5B51 /* Main.storyboard */,
+				555AC70F1CBE7244003DF023 /* iPad.storyboard */,
 				55A4F04A1CA966DC001A5B51 /* LaunchScreen.storyboard */,
 			);
 			name = Views;
@@ -198,6 +201,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				555AC7101CBE7244003DF023 /* iPad.storyboard in Resources */,
 				55A4F04C1CA966DC001A5B51 /* LaunchScreen.storyboard in Resources */,
 				55A4F0491CA966DC001A5B51 /* Assets.xcassets in Resources */,
 				55A4F0441CA966DC001A5B51 /* Main.storyboard in Resources */,
@@ -332,6 +336,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = rs.cubes.ToDo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -344,6 +349,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = rs.cubes.ToDo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
