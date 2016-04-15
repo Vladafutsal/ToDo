@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		554BDB641CC117A100A8A7E9 /* TaskTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 554BDB631CC117A100A8A7E9 /* TaskTableViewCell.m */; };
 		555AC7101CBE7244003DF023 /* iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 555AC70F1CBE7244003DF023 /* iPad.storyboard */; };
 		558717361CAC061700ABAC94 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 558717351CAC061700ABAC94 /* LoginViewController.m */; };
 		558717391CAC08E900ABAC94 /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 558717381CAC08E900ABAC94 /* SignUpViewController.m */; };
@@ -22,6 +23,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		554BDB621CC117A100A8A7E9 /* TaskTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaskTableViewCell.h; sourceTree = "<group>"; };
+		554BDB631CC117A100A8A7E9 /* TaskTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TaskTableViewCell.m; sourceTree = "<group>"; };
+		554BDB651CC1184700A8A7E9 /* Constanc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constanc.h; sourceTree = "<group>"; };
 		555AC70F1CBE7244003DF023 /* iPad.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = iPad.storyboard; sourceTree = "<group>"; };
 		558717341CAC061700ABAC94 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		558717351CAC061700ABAC94 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
@@ -117,6 +121,9 @@
 				55A4F03F1CA966DB001A5B51 /* ViewController.h */,
 				55A4F0401CA966DC001A5B51 /* ViewController.m */,
 				558717341CAC061700ABAC94 /* LoginViewController.h */,
+				554BDB621CC117A100A8A7E9 /* TaskTableViewCell.h */,
+				554BDB631CC117A100A8A7E9 /* TaskTableViewCell.m */,
+				554BDB651CC1184700A8A7E9 /* Constanc.h */,
 				558717351CAC061700ABAC94 /* LoginViewController.m */,
 				558717371CAC08E900ABAC94 /* SignUpViewController.h */,
 				558717381CAC08E900ABAC94 /* SignUpViewController.m */,
@@ -219,6 +226,7 @@
 				55A4F03B1CA966DB001A5B51 /* main.m in Sources */,
 				558717391CAC08E900ABAC94 /* SignUpViewController.m in Sources */,
 				55A4F0541CA96705001A5B51 /* ViewController.m in Sources */,
+				554BDB641CC117A100A8A7E9 /* TaskTableViewCell.m in Sources */,
 				55A4F0471CA966DC001A5B51 /* ToDo.xcdatamodeld in Sources */,
 				559227AE1CB7ED2400B855A2 /* HomeViewController.m in Sources */,
 				558717361CAC061700ABAC94 /* LoginViewController.m in Sources */,
