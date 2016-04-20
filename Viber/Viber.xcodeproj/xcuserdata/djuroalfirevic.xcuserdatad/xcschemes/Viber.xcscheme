@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "C435DD1D1CC4F611007F925C"
-               BuildableName = "TableView.app"
-               BlueprintName = "TableView"
-               ReferencedContainer = "container:TableView.xcodeproj">
+               BlueprintIdentifier = "C42B44C11CC681AF00E1D9D8"
+               BuildableName = "Viber.app"
+               BlueprintName = "Viber"
+               ReferencedContainer = "container:Viber.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -32,10 +32,10 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "C435DD1D1CC4F611007F925C"
-            BuildableName = "TableView.app"
-            BlueprintName = "TableView"
-            ReferencedContainer = "container:TableView.xcodeproj">
+            BlueprintIdentifier = "C42B44C11CC681AF00E1D9D8"
+            BuildableName = "Viber.app"
+            BlueprintName = "Viber"
+            ReferencedContainer = "container:Viber.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -55,10 +55,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "C435DD1D1CC4F611007F925C"
-            BuildableName = "TableView.app"
-            BlueprintName = "TableView"
-            ReferencedContainer = "container:TableView.xcodeproj">
+            BlueprintIdentifier = "C42B44C11CC681AF00E1D9D8"
+            BuildableName = "Viber.app"
+            BlueprintName = "Viber"
+            ReferencedContainer = "container:Viber.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -74,10 +74,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "C435DD1D1CC4F611007F925C"
-            BuildableName = "TableView.app"
-            BlueprintName = "TableView"
-            ReferencedContainer = "container:TableView.xcodeproj">
+            BlueprintIdentifier = "C42B44C11CC681AF00E1D9D8"
+            BuildableName = "Viber.app"
+            BlueprintName = "Viber"
+            ReferencedContainer = "container:Viber.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

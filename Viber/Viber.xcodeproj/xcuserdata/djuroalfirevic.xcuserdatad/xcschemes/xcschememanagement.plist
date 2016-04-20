@@ -4,7 +4,7 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>TableView.xcscheme</key>
+		<key>Viber.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>0</integer>
@@ -12,7 +12,7 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>C435DD1D1CC4F611007F925C</key>
+		<key>C42B44C11CC681AF00E1D9D8</key>
 		<dict>
 			<key>primary</key>
 			<true/>

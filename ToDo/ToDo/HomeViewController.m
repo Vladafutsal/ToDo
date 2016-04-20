@@ -10,7 +10,8 @@
 #import "TaskTableViewCell.h"
 #import "Constanc.h"
 
-@interface HomeViewController() <UITableViewDelegate, UITableViewDataSource>
+@interface HomeViewController() <UITableViewDelegate, UITableViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+@property (weak, nonatomic) IBOutlet UIImageView *profileImageView;
 
 @end
 
@@ -60,5 +61,80 @@
                                 
     return cell;
 }
+
+
+
+- (void)pickImage {
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Choose source:" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    
+    [alertController addAction:[UIAlertAction actionWithTitle:@"Photo Library" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        
+        UIImagePickerController *pickerController = [[UIImagePickerController alloc] init];
+        pickerController.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+        pickerController.delegate = self;
+        pickerController.allowsEditing = YES;
+        [self presentViewController:pickerController animated:YES completion:nil];
+        
+        
+    }]];
+    
+    if (![UIImagePickerController isCameraDeviceAvailable:UIImagePickerControllerCameraDeviceRear] || [UIImagePickerController isCameraDeviceAvailable:UIImagePickerControllerCameraDeviceFront]) {
+        [alertController addAction:[UIAlertAction actionWithTitle:@"Camera" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            
+            UIImagePickerController *pickerController = [[UIImagePickerController alloc] init];
+            pickerController.sourceType = UIImagePickerControllerSourceTypeCamera;
+            pickerController.delegate = self;
+            pickerController.allowsEditing = YES;
+            [self presentViewController:pickerController animated:YES completion:nil];
+            
+        }]];
+
+    }
+    
+    [alertController addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        
+        
+    }]];
+    
+    [self presentViewController:alertController animated:YES completion:nil];
+}
+
+#pragma mark - View Lifecycle
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self
+                                                                          action:@selector(pickImage)];
+    self.profileImageView.userInteractionEnabled = YES;
+    tap.numberOfTapsRequired = 1;
+    [self.profileImageView addGestureRecognizer:tap];
+    
+    
+    self.profileImageView.clipsToBounds = YES;
+    self.profileImageView.layer.cornerRadius = self.profileImageView.frame.size.width/2;
+}
+
+
+#pragma mark - UIImagePickerControllerDelegate
+
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
+    
+    [picker dismissViewControllerAnimated:YES completion:NULL];
+}
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
+    
+    UIImage *image = [info objectForKey:UIImagePickerControllerEditedImage];
+    if (!image) {
+        image = [info objectForKey:UIImagePickerControllerOriginalImage];
+    }
+    
+    self.profileImageView.image = image;
+    
+    //After picking image, dismiss image
+    [picker dismissViewControllerAnimated:YES completion:nil];
+}
+
 
 @end
