@@ -10,6 +10,7 @@
 #define Constanc_h
 
 //Macros
+
 #define COLOR(r,g,b,a)              [UIColor colorWithRed:r/255.0 green:g/255.0 blue:b/255.0 alpha:a]
 
 //Colors
@@ -25,5 +26,11 @@ typedef NS_ENUM(NSInteger, TaskGroup) {
     NOT_COMPLETED_TASK_GROUP,
     IN_PROGRESS_TASK_GROUP,
 };
+
+
+//User defaults
+
+static NSString *const USER_IMAGE               = @"USER_IMAGE";
+static NSString *const WALKTHROUGHT_PRESENTED   = @"WALKTHROUGHT_PRESENTED";
 
 #endif /* Constanc_h */
