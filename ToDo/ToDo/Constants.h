@@ -6,8 +6,8 @@
 //  Copyright © 2016 Cubes School 1. All rights reserved.
 //
 
-#ifndef Constanc_h
-#define Constanc_h
+#ifndef Constants_h
+#define Constants_h
 
 //Macros
 
@@ -18,6 +18,10 @@
 #define kOrangeColor                COLOR(254.0, 172.0, 73.0, 1.0)
 #define kPurpleColor                COLOR(187.0, 114.0, 255.0, 1.0)
 #define kTurquoiseColor             COLOR(72.0, 211.0, 194.0, 1.0)
+
+// String & numbers
+
+#define ZERO_VALUE  0.0
 
 //Enums
 
@@ -33,4 +37,4 @@ typedef NS_ENUM(NSInteger, TaskGroup) {
 static NSString *const USER_IMAGE               = @"USER_IMAGE";
 static NSString *const WALKTHROUGHT_PRESENTED   = @"WALKTHROUGHT_PRESENTED";
 
-#endif /* Constanc_h */
+#endif /* Constants_h */

@@ -7,7 +7,6 @@
 //
 
 #import "WalkThroughViewController.h"
-#import "Constanc.h"
 #import "WalkthroughItem.h"
 #import "WalkthroughCollectionViewCell.h"
 
@@ -22,7 +21,7 @@
 
 - (IBAction)closeButtonTapped:(id)sender {
     
-    [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"WALKTHROUGHT_PRESENTED"];
+    [[NSUserDefaults standardUserDefaults] setBool:YES forKey:WALKTHROUGHT_PRESENTED];
     [[NSUserDefaults standardUserDefaults] synchronize];
      
     [self.navigationController popViewControllerAnimated:YES];

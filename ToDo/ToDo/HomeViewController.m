@@ -8,7 +8,6 @@
 
 #import "HomeViewController.h"
 #import "TaskTableViewCell.h"
-#import "Constanc.h"
 
 @interface HomeViewController() <UITableViewDelegate, UITableViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 @property (weak, nonatomic) IBOutlet UIImageView *profileImageView;
@@ -119,6 +118,12 @@
         
         self.profileImageView.image = [[UIImage alloc] initWithData:data];
     }
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(4.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        
+        [self performSegueWithIdentifier:@"AboutSegue" sender:self];
+    });
+    
 }
 
 - (void)viewDidAppear:(BOOL)animated {
