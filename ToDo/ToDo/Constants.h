@@ -31,6 +31,10 @@ typedef NS_ENUM(NSInteger, TaskGroup) {
     IN_PROGRESS_TASK_GROUP,
 };
 
+//Notifications
+
+static NSString *const CITY_CHANGED = @"CITY_CHANGED";
+
 
 //User defaults
 

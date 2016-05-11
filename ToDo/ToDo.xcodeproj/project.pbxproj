@@ -25,6 +25,11 @@
 		55A4F05B1CA974C8001A5B51 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55A4F05A1CA974C8001A5B51 /* CoreLocation.framework */; };
 		55B0F8231CDA1E5500BCC523 /* StatisticsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55B0F8221CDA1E5500BCC523 /* StatisticsViewController.m */; };
 		55B0F8261CDA2E0E00BCC523 /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55B0F8251CDA2E0E00BCC523 /* WebViewController.m */; };
+		55F92E591CE3577500E1584B /* Task+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 55F92E561CE3577500E1584B /* Task+CoreDataProperties.m */; };
+		55F92E5A1CE3577500E1584B /* Task.m in Sources */ = {isa = PBXBuildFile; fileRef = 55F92E581CE3577500E1584B /* Task.m */; };
+		55F92E5D1CE35A3C00E1584B /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 55F92E5C1CE35A3C00E1584B /* DataManager.m */; };
+		55F92E601CE35B3F00E1584B /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55F92E5F1CE35B3F00E1584B /* MapKit.framework */; };
+		55F92E621CE35B5000E1584B /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55F92E611CE35B5000E1584B /* CoreData.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -61,6 +66,14 @@
 		55B0F8241CDA2E0E00BCC523 /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
 		55B0F8251CDA2E0E00BCC523 /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
 		55B0F8271CDA352300BCC523 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		55F92E551CE3577500E1584B /* Task+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Task+CoreDataProperties.h"; sourceTree = "<group>"; };
+		55F92E561CE3577500E1584B /* Task+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Task+CoreDataProperties.m"; sourceTree = "<group>"; };
+		55F92E571CE3577500E1584B /* Task.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Task.h; sourceTree = "<group>"; };
+		55F92E581CE3577500E1584B /* Task.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Task.m; sourceTree = "<group>"; };
+		55F92E5B1CE35A3C00E1584B /* DataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataManager.h; sourceTree = "<group>"; };
+		55F92E5C1CE35A3C00E1584B /* DataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataManager.m; sourceTree = "<group>"; };
+		55F92E5F1CE35B3F00E1584B /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		55F92E611CE35B5000E1584B /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +81,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				55F92E621CE35B5000E1584B /* CoreData.framework in Frameworks */,
+				55F92E601CE35B3F00E1584B /* MapKit.framework in Frameworks */,
 				55A4F05B1CA974C8001A5B51 /* CoreLocation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -95,6 +110,7 @@
 		55A4F0381CA966DB001A5B51 /* ToDo */ = {
 			isa = PBXGroup;
 			children = (
+				55F92E5E1CE35A4800E1584B /* Utilites */,
 				55A4F0561CA96BF3001A5B51 /* Models */,
 				55A4F0581CA96C59001A5B51 /* Views */,
 				55A4F0571CA96C3C001A5B51 /* Controllers */,
@@ -127,6 +143,10 @@
 		55A4F0561CA96BF3001A5B51 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				55F92E551CE3577500E1584B /* Task+CoreDataProperties.h */,
+				55F92E561CE3577500E1584B /* Task+CoreDataProperties.m */,
+				55F92E571CE3577500E1584B /* Task.h */,
+				55F92E581CE3577500E1584B /* Task.m */,
 				55A4F0451CA966DC001A5B51 /* ToDo.xcdatamodeld */,
 			);
 			name = Models;
@@ -173,9 +193,20 @@
 		55A4F0591CA96C83001A5B51 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				55F92E611CE35B5000E1584B /* CoreData.framework */,
+				55F92E5F1CE35B3F00E1584B /* MapKit.framework */,
 				55A4F05A1CA974C8001A5B51 /* CoreLocation.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		55F92E5E1CE35A4800E1584B /* Utilites */ = {
+			isa = PBXGroup;
+			children = (
+				55F92E5B1CE35A3C00E1584B /* DataManager.h */,
+				55F92E5C1CE35A3C00E1584B /* DataManager.m */,
+			);
+			name = Utilites;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -251,6 +282,7 @@
 			files = (
 				55A4F03E1CA966DB001A5B51 /* AppDelegate.m in Sources */,
 				55A4F03B1CA966DB001A5B51 /* main.m in Sources */,
+				55F92E591CE3577500E1584B /* Task+CoreDataProperties.m in Sources */,
 				558717391CAC08E900ABAC94 /* SignUpViewController.m in Sources */,
 				55B0F8231CDA1E5500BCC523 /* StatisticsViewController.m in Sources */,
 				553D80DF1CCE3D5600E010D4 /* WalkthroughCollectionViewCell.m in Sources */,
@@ -258,8 +290,10 @@
 				55B0F8261CDA2E0E00BCC523 /* WebViewController.m in Sources */,
 				554BDB641CC117A100A8A7E9 /* TaskTableViewCell.m in Sources */,
 				55A4F0471CA966DC001A5B51 /* ToDo.xcdatamodeld in Sources */,
+				55F92E5A1CE3577500E1584B /* Task.m in Sources */,
 				5548FFF41CCA524A0084752C /* WalkThroughViewController.m in Sources */,
 				559227AE1CB7ED2400B855A2 /* HomeViewController.m in Sources */,
+				55F92E5D1CE35A3C00E1584B /* DataManager.m in Sources */,
 				553D80E21CCE439E00E010D4 /* WalkthroughItem.m in Sources */,
 				558717361CAC061700ABAC94 /* LoginViewController.m in Sources */,
 			);
