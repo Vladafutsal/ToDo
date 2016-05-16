@@ -97,18 +97,37 @@
     
 }
 
+
 - (void)deleteObjectInDataBase:(NSManagedObject *)object {
+    [self.managedObjectContext deleteObject:object];
+    [self saveToDatabese];
     
 }
+
 - (void)updateObject:(NSManagedObject *)object {
-    
+    NSError *error = nil;
+    if ([object.managedObjectContext hasChanges] && ![object.managedObjectContext save:&error]) {
+        NSLog( @"Unresolved error %@, %@", [error localizedDescription], [error userInfo]);
+        abort();
+    }
 }
+
 - (void)logObject:(NSManagedObject *)object {
+    NSEntityDescription *decription = [object entity];
+    NSDictionary *attributes = [decription attributesByName];
     
+    for (NSString *attribute in attributes) {
+        NSLog(@"%@ = %@", attribute, [object valueForKey:attribute]);
+    }
 }
+
 - (CGFloat)numberOfTaskPerTaskGroup: (TaskGroup)group {
+    NSArray *tasksArray = [self fetchEntity:NSStringFromClass([Task class])
+                                 withFilter:[NSString stringWithFormat:@" group = %ld", group]
+                                withSortasc:NO
+                                     forKey:nil];
     
-    return 0.0;
+    return tasksArray.count;
     
 }
 
@@ -116,8 +135,31 @@
 - (void)saveTaskWithTitle:(NSString *)title
               description:(NSString *)description
                     group:(NSInteger)group {
+    Task *task = (Task *) [NSEntityDescription insertNewObjectForEntityForName:NSStringFromClass([Task class]) inManagedObjectContext:self.managedObjectContext];
+    task.heading = title;
+    task.desc = description;
+    
+    if (self.userLocation) {
+        task.latitude = [NSNumber numberWithFloat:self.userLocation.coordinate.latitude];
+        task.longitude = [NSNumber numberWithFloat:self.userLocation.coordinate.longitude];
+    }
+    
+    task.date = [NSDate date];
+    task.group = [NSNumber numberWithInteger:group];
+    
+    [self saveToDatabese];
     
 }
 
+
+#pragma mark - Private API
+
+- (void)saveToDatabese {
+      NSError *error = nil;
+        if ([self.managedObjectContext hasChanges] && ![self.managedObjectContext save:&error]) {
+            NSLog( @"Unresolved error %@, %@", [error localizedDescription], [error userInfo]);
+            abort();
+        }
+}
 
 @end
