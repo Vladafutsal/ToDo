@@ -48,6 +48,12 @@
 -(void)viewDidLoad {
     [super viewDidLoad];
     
+    //self.urlString = @"http://wwww.google.com";
+    
+    if (self.urlString) {
+        [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:self.urlString]]];
+    }
+    
     self.closeButton.alpha = ZERO_VALUE;
     
 }
