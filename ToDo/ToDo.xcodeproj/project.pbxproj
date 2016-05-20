@@ -27,6 +27,8 @@
 		55A4F05B1CA974C8001A5B51 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55A4F05A1CA974C8001A5B51 /* CoreLocation.framework */; };
 		55B0F8231CDA1E5500BCC523 /* StatisticsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55B0F8221CDA1E5500BCC523 /* StatisticsViewController.m */; };
 		55B0F8261CDA2E0E00BCC523 /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55B0F8251CDA2E0E00BCC523 /* WebViewController.m */; };
+		55F790AD1CEF2AAC0062CD83 /* TaskDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55F790AC1CEF2AAC0062CD83 /* TaskDetailsViewController.m */; };
+		55F790B01CEF3F4E0062CD83 /* UIViewController+Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 55F790AF1CEF3F4E0062CD83 /* UIViewController+Utilities.m */; };
 		55F92E591CE3577500E1584B /* Task+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 55F92E561CE3577500E1584B /* Task+CoreDataProperties.m */; };
 		55F92E5A1CE3577500E1584B /* Task.m in Sources */ = {isa = PBXBuildFile; fileRef = 55F92E581CE3577500E1584B /* Task.m */; };
 		55F92E5D1CE35A3C00E1584B /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 55F92E5C1CE35A3C00E1584B /* DataManager.m */; };
@@ -71,6 +73,10 @@
 		55B0F8241CDA2E0E00BCC523 /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
 		55B0F8251CDA2E0E00BCC523 /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
 		55B0F8271CDA352300BCC523 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		55F790AB1CEF2AAC0062CD83 /* TaskDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaskDetailsViewController.h; sourceTree = "<group>"; };
+		55F790AC1CEF2AAC0062CD83 /* TaskDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TaskDetailsViewController.m; sourceTree = "<group>"; };
+		55F790AE1CEF3F4E0062CD83 /* UIViewController+Utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Utilities.h"; sourceTree = "<group>"; };
+		55F790AF1CEF3F4E0062CD83 /* UIViewController+Utilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Utilities.m"; sourceTree = "<group>"; };
 		55F92E551CE3577500E1584B /* Task+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Task+CoreDataProperties.h"; sourceTree = "<group>"; };
 		55F92E561CE3577500E1584B /* Task+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Task+CoreDataProperties.m"; sourceTree = "<group>"; };
 		55F92E571CE3577500E1584B /* Task.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Task.h; sourceTree = "<group>"; };
@@ -175,6 +181,10 @@
 				558717381CAC08E900ABAC94 /* SignUpViewController.m */,
 				55B0F8211CDA1E5500BCC523 /* StatisticsViewController.h */,
 				55B0F8221CDA1E5500BCC523 /* StatisticsViewController.m */,
+				55F790AB1CEF2AAC0062CD83 /* TaskDetailsViewController.h */,
+				55F790AC1CEF2AAC0062CD83 /* TaskDetailsViewController.m */,
+				55F790AE1CEF3F4E0062CD83 /* UIViewController+Utilities.h */,
+				55F790AF1CEF3F4E0062CD83 /* UIViewController+Utilities.m */,
 				55B0F8241CDA2E0E00BCC523 /* WebViewController.h */,
 				55B0F8251CDA2E0E00BCC523 /* WebViewController.m */,
 				559227AC1CB7ED2400B855A2 /* HomeViewController.h */,
@@ -297,6 +307,8 @@
 				555B9CE31CEC8811009CC45C /* MenuView.m in Sources */,
 				553D80DF1CCE3D5600E010D4 /* WalkthroughCollectionViewCell.m in Sources */,
 				55A4F0541CA96705001A5B51 /* ViewController.m in Sources */,
+				55F790B01CEF3F4E0062CD83 /* UIViewController+Utilities.m in Sources */,
+				55F790AD1CEF2AAC0062CD83 /* TaskDetailsViewController.m in Sources */,
 				55B0F8261CDA2E0E00BCC523 /* WebViewController.m in Sources */,
 				554BDB641CC117A100A8A7E9 /* TaskTableViewCell.m in Sources */,
 				55A4F0471CA966DC001A5B51 /* ToDo.xcdatamodeld in Sources */,
