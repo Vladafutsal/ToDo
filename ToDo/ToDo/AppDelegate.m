@@ -7,15 +7,15 @@
 //
 
 #import "AppDelegate.h"
+#import "DataManager.h"
+#import <CoreLocation/CoreLocation.h>
 
+@interface AppDelegate() <CLLocationManagerDelegate>
+@property (strong, nonatomic) CLLocationManager *locationManager;
+@end
 
 
 @implementation AppDelegate
-
-
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    return YES;
-}
 
 
 - (void)applicationWillTerminate:(UIApplication *)application {
@@ -28,8 +28,9 @@
 @synthesize managedObjectModel = _managedObjectModel;
 @synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
 
+#pragma mark - Properties
+
 - (NSURL *)applicationDocumentsDirectory {
-    // The directory the application uses to store the Core Data store file. This code uses a directory named "rs.cubes.ToDo" in the application's documents directory.
     return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
 }
 
@@ -89,6 +90,35 @@
             abort();
         }
     }
+}
+
+#pragma mark - Private API
+
+-(void)configureLocationManager {
+    self.locationManager = [[CLLocationManager alloc] init];
+    self.locationManager.delegate = self;
+    [self.locationManager requestAlwaysAuthorization];
+    [self.locationManager startMonitoringSignificantLocationChanges];
+}
+
+#pragma mark - UIApplicatioDelegate
+
+-(BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    [self configureLocationManager];
+    
+    return YES;
+}
+
+#pragma mark - CLLocationManagerDelegate
+
+-(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations {
+    if (locations.count > 0) {
+        [DataManager sharedInstance].userLocation = [locations firstObject];
+    }
+}
+
+-(void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error {
+    //NSLog(@"", [error localizedDescription]);
 }
 
 @end

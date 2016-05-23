@@ -358,8 +358,12 @@
                     <navigationItem key="navigationItem" id="UIM-Pn-qcH"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
+                        <outlet property="badgeImageView" destination="7HJ-Ze-z3O" id="7hJ-bm-ZId"/>
+                        <outlet property="badgeLabel" destination="Vuq-ct-dag" id="YQ2-Fx-PxT"/>
                         <outlet property="menuView" destination="qVT-Zd-1iq" id="Wpj-of-TFz"/>
                         <outlet property="profileImageView" destination="VEe-aV-lhh" id="FET-19-FLm"/>
+                        <outlet property="tableView" destination="3LH-4B-Oh2" id="beo-Cp-eAN"/>
+                        <outlet property="welcomeLabel" destination="XL7-tA-JiZ" id="tGO-eN-wdl"/>
                         <segue destination="zBd-oi-QaY" kind="push" identifier="WalkthroughtSegue" id="NNR-kF-Kx7"/>
                         <segue destination="RLN-fu-R0s" kind="push" identifier="StatisticsSegue" id="chw-cf-LUr"/>
                         <segue destination="j4L-yr-J9s" kind="modal" identifier="AboutSegue" id="0pP-e6-8Ir"/>
@@ -704,7 +708,7 @@
                                 <rect key="frame" x="20" y="281" width="260" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="14"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view alpha="0.05000000074505806" contentMode="scaleToFill" id="kWM-vv-bwp" userLabel="Separator">
@@ -716,7 +720,7 @@
                                 <rect key="frame" x="20" y="324" width="186" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="14"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="K7Q-FI-tNb">

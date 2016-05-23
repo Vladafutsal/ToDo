@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		553D80DF1CCE3D5600E010D4 /* WalkthroughCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 553D80DE1CCE3D5600E010D4 /* WalkthroughCollectionViewCell.m */; };
 		553D80E21CCE439E00E010D4 /* WalkthroughItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 553D80E11CCE439E00E010D4 /* WalkthroughItem.m */; };
+		553E9B461CF33D2C006824CE /* Helpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 553E9B451CF33D2C006824CE /* Helpers.m */; };
 		5548FFF41CCA524A0084752C /* WalkThroughViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5548FFF31CCA524A0084752C /* WalkThroughViewController.m */; };
 		554BDB641CC117A100A8A7E9 /* TaskTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 554BDB631CC117A100A8A7E9 /* TaskTableViewCell.m */; };
 		555AC7101CBE7244003DF023 /* iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 555AC70F1CBE7244003DF023 /* iPad.storyboard */; };
@@ -41,6 +42,8 @@
 		553D80DE1CCE3D5600E010D4 /* WalkthroughCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WalkthroughCollectionViewCell.m; sourceTree = "<group>"; };
 		553D80E01CCE439E00E010D4 /* WalkthroughItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WalkthroughItem.h; sourceTree = "<group>"; };
 		553D80E11CCE439E00E010D4 /* WalkthroughItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WalkthroughItem.m; sourceTree = "<group>"; };
+		553E9B441CF33D2C006824CE /* Helpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Helpers.h; sourceTree = "<group>"; };
+		553E9B451CF33D2C006824CE /* Helpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Helpers.m; sourceTree = "<group>"; };
 		5548FFF21CCA524A0084752C /* WalkThroughViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WalkThroughViewController.h; sourceTree = "<group>"; };
 		5548FFF31CCA524A0084752C /* WalkThroughViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WalkThroughViewController.m; sourceTree = "<group>"; };
 		554BDB621CC117A100A8A7E9 /* TaskTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaskTableViewCell.h; sourceTree = "<group>"; };
@@ -178,6 +181,8 @@
 				553D80E11CCE439E00E010D4 /* WalkthroughItem.m */,
 				554BDB651CC1184700A8A7E9 /* Constants.h */,
 				558717371CAC08E900ABAC94 /* SignUpViewController.h */,
+				553E9B441CF33D2C006824CE /* Helpers.h */,
+				553E9B451CF33D2C006824CE /* Helpers.m */,
 				558717381CAC08E900ABAC94 /* SignUpViewController.m */,
 				55B0F8211CDA1E5500BCC523 /* StatisticsViewController.h */,
 				55B0F8221CDA1E5500BCC523 /* StatisticsViewController.m */,
@@ -306,6 +311,7 @@
 				55B0F8231CDA1E5500BCC523 /* StatisticsViewController.m in Sources */,
 				555B9CE31CEC8811009CC45C /* MenuView.m in Sources */,
 				553D80DF1CCE3D5600E010D4 /* WalkthroughCollectionViewCell.m in Sources */,
+				553E9B461CF33D2C006824CE /* Helpers.m in Sources */,
 				55A4F0541CA96705001A5B51 /* ViewController.m in Sources */,
 				55F790B01CEF3F4E0062CD83 /* UIViewController+Utilities.m in Sources */,
 				55F790AD1CEF2AAC0062CD83 /* TaskDetailsViewController.m in Sources */,

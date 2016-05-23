@@ -37,12 +37,14 @@ typedef NS_ENUM(NSInteger, TaskGroup) {
 static NSString *const CITY_CHANGED = @"CITY_CHANGED";
 
 
+
 //User defaults
 
 static NSString *const USER_IMAGE               = @"USER_IMAGE";
 static NSString *const WALKTHROUGHT_PRESENTED   = @"WALKTHROUGHT_PRESENTED";
 
 static NSString *const EMPTY_STRING             = @" ";
+static NSString *const LOGGED_IN                = @"LOGGED_IN";
 
 // URLs
 static NSString *const CUBES_URL        =@"http://www.cubes.rs";

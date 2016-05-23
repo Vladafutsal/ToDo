@@ -8,20 +8,66 @@
 
 #import "HomeViewController.h"
 #import "TaskTableViewCell.h"
+#import "TaskDetailsViewController.h"
 #import "UIViewController+Utilities.h"
+#import "DataManager.h"
+#import "Task.h"
 #import "MenuView.h"
+#import "Helpers.h"
 
 @interface HomeViewController() <UITableViewDelegate, UITableViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate, MenuViewDelegate>
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIImageView *profileImageView;
+@property (weak, nonatomic) IBOutlet UIImageView *badgeImageView;
+@property (weak, nonatomic) IBOutlet UILabel *badgeLabel;
+@property (weak, nonatomic) IBOutlet UILabel *welcomeLabel;
 @property (weak, nonatomic) IBOutlet MenuView *menuView;
+@property (strong, nonatomic) NSMutableArray *itemsArray;
 @end
 
 @implementation HomeViewController
+
+#pragma mark - Properties
+
+-(NSMutableArray *)itemsArray {
+    return [[DataManager sharedInstance]  fetchEntity:NSStringFromClass([Task class])
+                                           withFilter:nil
+                                          withSortasc:YES
+                                              forKey:@"date"];
+}
 
 #pragma mark - UITableViewDelegate
 
 - (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return 70;
+}
+
+#pragma mark - Private API 
+
+-(void)configureBadge {
+    self.badgeImageView.alpha = (self.itemsArray.count == 0) ? ZERO_VALUE : 1.0;
+    self.badgeLabel.alpha = (self.itemsArray.count == 0) ? ZERO_VALUE : 1.0;
+    self.badgeLabel.text = [NSString stringWithFormat:@"%ld", self.itemsArray.count];
+
+}
+
+-(void)configureProfileImage {
+    self.profileImageView.clipsToBounds = YES;
+    self.profileImageView.layer.cornerRadius = self.profileImageView.frame.size.width/2;
+    
+    if ([[NSUserDefaults standardUserDefaults] objectForKey:USER_IMAGE]) {
+        NSData *data = [[NSUserDefaults standardUserDefaults] objectForKey:USER_IMAGE];
+        
+        self.profileImageView.image = [[UIImage alloc] initWithData:data];
+    }
+}
+
+-(void)configureWelcome {
+    if ([Helpers isMorning]) {
+        self.welcomeLabel.text = @"Good Morning!";
+    } else {
+        self.welcomeLabel.text = @"Good Afternnon!";
+    }
 }
 
 
@@ -32,7 +78,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 5;
+    return self.itemsArray.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -114,19 +160,12 @@
     [self.profileImageView addGestureRecognizer:tap];
     
     
-    self.profileImageView.clipsToBounds = YES;
-    self.profileImageView.layer.cornerRadius = self.profileImageView.frame.size.width/2;
-    
-    if ([[NSUserDefaults standardUserDefaults] objectForKey:USER_IMAGE]) {
-        NSData *data = [[NSUserDefaults standardUserDefaults] objectForKey:USER_IMAGE];
-        
-        self.profileImageView.image = [[UIImage alloc] initWithData:data];
-    }
-    
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(4.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         
         [self presentErrorWithTitle:@"Caoo" andError:@"Vlado"];
     });
+    
+    [self configureProfileImage];
     
 }
 
