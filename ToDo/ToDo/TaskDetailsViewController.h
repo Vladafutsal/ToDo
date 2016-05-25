@@ -10,5 +10,6 @@
 #import "Task.h"
 
 @interface TaskDetailsViewController : UIViewController
+
 @property (strong, nonatomic) Task *task;
 @end

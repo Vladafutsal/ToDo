@@ -10,6 +10,7 @@
 #import "TaskTableViewCell.h"
 #import "TaskDetailsViewController.h"
 #import "UIViewController+Utilities.h"
+#import "WebViewController.h"
 #import "DataManager.h"
 #import "Task.h"
 #import "MenuView.h"
@@ -23,6 +24,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *welcomeLabel;
 @property (weak, nonatomic) IBOutlet MenuView *menuView;
 @property (strong, nonatomic) NSMutableArray *itemsArray;
+@property (strong, nonatomic) Task *selectedTask;
 @end
 
 @implementation HomeViewController
@@ -52,6 +54,12 @@
 }
 
 -(void)configureProfileImage {
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self
+                                                                          action:@selector(pickImage)];
+    self.profileImageView.userInteractionEnabled = YES;
+    tap.numberOfTapsRequired = 1;
+    [self.profileImageView addGestureRecognizer:tap];
+    
     self.profileImageView.clipsToBounds = YES;
     self.profileImageView.layer.cornerRadius = self.profileImageView.frame.size.width/2;
     
@@ -70,6 +78,20 @@
     }
 }
 
+#pragma mark - Segue Management
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"AboutSegue"]) {
+        WebViewController *webViewController = (WebViewController *)segue.destinationViewController;
+        webViewController.urlString = CUBES_URL;
+    }
+    
+    if ([segue.identifier isEqualToString:@"TaskDetailsSegue"]) {
+        TaskDetailsViewController *taskDetailsViewController = (TaskDetailsViewController *)segue.destinationViewController;
+        taskDetailsViewController.task = self.selectedTask;
+    }
+}
+
 
 #pragma mark - UITableViewDataSource
 
@@ -85,30 +107,39 @@
     
     TaskTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
     
-    cell.taskTitleLabel.text = [NSString stringWithFormat: @"red %ld", indexPath.row];
+    //Task *task =[self.itemsArray objectAtIndex:indexPath.row];
+    //cell.task = task;
     
-    switch (indexPath.row) {
-            
-        case COMPLETED_TASK_GROUP:
-            cell.taskGroupView.backgroundColor = kTurquoiseColor;
-            break;
-            
-        case NOT_COMPLETED_TASK_GROUP:
-            cell.taskGroupView.backgroundColor = kPurpleColor;
-            break;
-            
-        case IN_PROGRESS_TASK_GROUP:
-            cell.taskGroupView.backgroundColor = kOrangeColor;
-            break;
-            
-            default:
-            cell.taskGroupView.backgroundColor = [UIColor redColor];
-            break;
-            }
-                                
+    cell.task = self.itemsArray[indexPath.row];
+    
     return cell;
 }
 
+-(BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    return YES;
+}
+
+-(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        Task *task = [self.itemsArray objectAtIndex:indexPath.row];
+        [[DataManager sharedInstance] deleteObjectInDataBase:task];
+        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        
+        [tableView reloadData];
+        [self configureBadge];
+    }
+}
+
+
+#pragma mark - UITableViewDelegate
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    Task *task = [self.itemsArray objectAtIndex:indexPath.row];
+    self.selectedTask = task;
+    [self performSegueWithIdentifier:@"TaskDetailsSegue" sender:nil];
+}
 
 
 - (void)pickImage {
@@ -153,20 +184,18 @@
     
     self.menuView.delegate = self;
     
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self
-                                                                          action:@selector(pickImage)];
-    self.profileImageView.userInteractionEnabled = YES;
-    tap.numberOfTapsRequired = 1;
-    [self.profileImageView addGestureRecognizer:tap];
-    
-    
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(4.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        
-        [self presentErrorWithTitle:@"Caoo" andError:@"Vlado"];
-    });
+    self.tableView.tableFooterView = [[UIView alloc] init];
     
     [self configureProfileImage];
+    [self configureBadge];
+    [self configureWelcome];
+}
+
+-(void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
     
+    [self.tableView reloadData];
+    [self configureBadge];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -174,7 +203,7 @@
     
     if (![[NSUserDefaults standardUserDefaults] boolForKey:@"WALKTHROUGHT_PRESENTED"]) {
         [self performSegueWithIdentifier:@"WalkthroughtSegue" sender:self];
-        }
+    }
 }
 
 
@@ -207,17 +236,18 @@
 
 - (void)menuViewOptionTapped:(MenuOption)option {
     switch (option) {
-        case TASK_DETAILS_MENU_OPTION:
-            [self performSegueWithIdentifier:@"TaskDetailsSegue" sender:nil];
+        case TASK_DETAILS_MENU_OPTION: {
+            self.selectedTask = nil;
+            [self performSegueWithIdentifier:@"TaskDetailsSegue" sender:nil]; }
             break;
-        case ABOUT_MENU_OPTION:
-            [self performSegueWithIdentifier:@"AboutSegue" sender:nil];
+        case ABOUT_MENU_OPTION: {
+            [self performSegueWithIdentifier:@"AboutSegue" sender:nil]; }
             break;
-        case STATISTICS_MENU_OPTION:
-            [self performSegueWithIdentifier:@"StatisticsSegue" sender:nil];
+        case STATISTICS_MENU_OPTION: {
+            [self performSegueWithIdentifier:@"StatisticsSegue" sender:nil]; }
             break;
-        case WALKTHROUGH_MENU_OPTION:
-            [self performSegueWithIdentifier:@"WalkthroughSegue" sender:nil];
+        case WALKTHROUGH_MENU_OPTION: {
+            [self performSegueWithIdentifier:@"WalkthroughSegue" sender:nil]; }
             break;
     }
 }

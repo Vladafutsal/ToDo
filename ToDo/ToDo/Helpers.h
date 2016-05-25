@@ -11,6 +11,6 @@
 @interface Helpers : NSObject
 +(BOOL)isEmailValid:(NSString *)email;
 +(BOOL)isLoggedIn;
-+ (UIColor *)colorFortaskGroup:(TaskGroup)group;
++ (UIColor *)colorForTaskGroup:(TaskGroup)group;
 +(BOOL)isMorning;
 @end

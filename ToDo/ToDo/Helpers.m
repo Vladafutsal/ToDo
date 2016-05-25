@@ -22,7 +22,7 @@
     return [[NSUserDefaults standardUserDefaults] boolForKey:LOGGED_IN];
 }
 
-+ (UIColor *)colorFortaskGroup:(TaskGroup)group {
++ (UIColor *)colorForTaskGroup:(TaskGroup)group {
     UIColor *color = nil;
     
     switch (group) {
