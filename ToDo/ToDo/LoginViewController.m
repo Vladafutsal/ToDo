@@ -17,25 +17,6 @@
 
 @implementation LoginViewController
 
-#pragma mark - Private API
-
-- (void)configureTextField:(UITextField *)textField {
-    if (textField.placeholder.length > 0) {
-//        UIColor *color = [UIColor colorWithRed:117.0/255.0
-//                                         green:113.0/255.0
-//                                          blue:111.0/255.0
-//                                         alpha:1.0];
-        
-        NSDictionary *attributes = @{
-                                     NSFontAttributeName: [UIFont fontWithName:@"AvenirNext-Regular" size:14.0],
-                                     NSForegroundColorAttributeName: [UIColor whiteColor]
-                                     };
-        
-        textField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:textField.placeholder
-                                                                          attributes:attributes];
-    }
-}
-
 #pragma mark - Actions
 
 - (IBAction)forgotPasswordButtonTapped:(UIButton *)sender {
@@ -107,6 +88,37 @@
     self.passwordTextField.attributedPlaceholder = passwordPlaceholder;
 }
 
+-(void)registerForNotifications {
+    [[NSNotificationCenter defaultCenter] addObserverForName:UIKeyboardWillShowNotification
+                                         object:nil
+                                         queue:[NSOperationQueue mainQueue]
+                                         usingBlock:^(NSNotification *note)
+     {
+         NSDictionary *keyboardInfo = note.userInfo;
+         NSValue  *keyboardFrameBegin = [keyboardInfo valueForKey:UIKeyboardFrameBeginUserInfoKey];
+         CGRect keyboardFrameBeginRect = keyboardFrameBegin.CGRectValue;
+         
+         [UIView animateWithDuration:0.3 animations:^{
+             CGRect frame = self.containerView.frame;
+             frame.origin.y = self.view.frame.size.height - keyboardFrameBeginRect.size.height - self.containerView.frame.size.height;
+             self.containerView.frame = frame;
+         }];
+     }];
+    
+    [[NSNotificationCenter defaultCenter] addObserverForName:UIKeyboardWillHideNotification
+                                                      object:nil
+                                                       queue:[NSOperationQueue mainQueue]
+                                                  usingBlock:^(NSNotification *note)
+     {
+         [UIView animateWithDuration:0.3 animations:^{
+             CGRect frame = self.containerView.frame;
+             frame.origin.y = self.containerViewOriginY;
+             self.containerView.frame = frame;
+         }];
+     }];
+
+}
+
 -(void)animate{
     [UIView animateWithDuration:2.5 animations:^{
         self.maskLogoVIew.alpha = 0.0;
@@ -140,9 +152,9 @@
     [super viewDidLoad];
 
     [self configureTextFieldPlaceholders];
-    [self configureTextField:self.usernameTextField];
-    [self configureTextField:self.passwordTextField];
+    [self registerForNotifications];
     
+    self.containerViewOriginY = self.containerView.frame.origin.y;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -157,6 +169,10 @@
     [self animate];
 }
 
+- (UIStatusBarStyle)preferredStatusBarStyle {
+    return UIStatusBarStyleLightContent;
+}
+
 #pragma mark - UITextFieldDelegate
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
@@ -167,31 +183,20 @@
 }
 
 - (void)textFieldDidBeginEditing:(UITextField *)textField {
-    [UIView animateWithDuration:10.0
-                          delay:0.0
-         usingSpringWithDamping:0.4
-          initialSpringVelocity:10.0
-                        options:UIViewAnimationOptionCurveEaseIn
-                     animations:^{
-                         CGRect frame = self.containerView.frame;
-                         frame.origin.y = frame.origin.y - kConstant;
-                         self.containerView.frame = frame;
-                     }
-                     completion:nil];
+    if (textField == self.usernameTextField) {
+        self.usernameImageView.image = [UIImage imageNamed:@"username-active"];
+    }
+    
+    if (textField == self.passwordTextField) {
+        self.passwordImageView.image = [UIImage imageNamed:@"password-active"];
+    }
+
 }
 
 - (void)textFieldDidEndEditing:(UITextField *)textField {
-    [UIView animateWithDuration:1.0
-                          delay:0.0
-         usingSpringWithDamping:0.4
-          initialSpringVelocity:10.0
-                        options:UIViewAnimationOptionCurveEaseIn
-                     animations:^{
-                         CGRect frame = self.containerView.frame;
-                         frame.origin.y = frame.origin.y + kConstant;
-                         self.containerView.frame = frame;
-                     }
-                     completion:nil];
+    self.usernameImageView.image = [UIImage imageNamed:@"username"];
+    self.passwordImageView.image = [UIImage imageNamed:@"password"];
+
 }
 
 @end
